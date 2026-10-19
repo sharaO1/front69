@@ -66,15 +66,6 @@ import {
 import { FileSpreadsheet, FileJson } from "lucide-react";
 import { useAuthStore } from "@/stores/authStore";
 import { useTranslation } from "react-i18next";
-import {
-  Drawer,
-  DrawerTrigger,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerFooter,
-} from "@/components/ui/drawer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { PaginationControls } from "@/components/ui/pagination";
 
@@ -304,7 +295,6 @@ export default function Sales() {
   const isMobile = useIsMobile();
   const [barcodeBuffer, setBarcodeBuffer] = useState("");
   const [isCameraOpen, setIsCameraOpen] = useState(false);
-  const [isCameraClosing, setIsCameraClosing] = useState(false);
   const [cameraQuantity, setCameraQuantity] = useState("1");
   const [pendingCameraProduct, setPendingCameraProduct] = useState<Product | null>(null);
   const [cameraMatchFeedback, setCameraMatchFeedback] = useState(false);
@@ -328,7 +318,6 @@ export default function Sales() {
   const productSelectTriggerRef = useRef<HTMLButtonElement | null>(null);
 
   const closeCamera = () => {
-    if (isCameraOpen) setIsCameraClosing(true);
     cameraRequestRef.current += 1;
     scannerControlsRef.current?.stop();
     scannerControlsRef.current = null;
@@ -346,7 +335,6 @@ export default function Sales() {
 
   const openCamera = async () => {
     cameraSessionRef.current = true;
-    setIsCameraClosing(false);
     const requestId = ++cameraRequestRef.current;
     lastCameraCodeRef.current = "";
     cameraMissedFramesRef.current = 0;
@@ -576,7 +564,7 @@ export default function Sales() {
         product.barcode?.trim().toLowerCase() === code.toLowerCase(),
     );
 
-  // Reset form state when the invoice drawer closes.
+  // Reset form state when the invoice dialog closes.
   useEffect(() => {
     if (!isCreateDialogOpen) {
       clearNewInvoice();
@@ -2444,32 +2432,28 @@ export default function Sales() {
 
           {isMobile ? (
             <>
-            <Drawer
+            <Dialog
               open={isCreateDialogOpen}
               onOpenChange={handleCreateDialogOpenChange}
-              fixed
-              repositionInputs={!isCameraOpen && !isCameraClosing}
-              shouldScaleBackground={false}
             >
-              <DrawerTrigger asChild>
+              <DialogTrigger asChild>
                 <Button title="F2 or Ctrl+N">
                   <Plus className="mr-2 h-4 w-4" />
                   {t("sales.new_invoice")}
                 </Button>
-              </DrawerTrigger>
-              <DrawerContent
-                overlayClassName="bg-black/25"
-                className="relative h-[90dvh] max-h-[90dvh] overflow-hidden"
+              </DialogTrigger>
+              <DialogContent
+                className="fixed inset-x-0 bottom-0 left-0 top-auto flex h-[90dvh] max-h-[90dvh] w-full max-w-none translate-x-0 translate-y-0 flex-col gap-0 overflow-hidden rounded-b-none rounded-t-[10px] p-0 data-[state=open]:animate-none data-[state=closed]:animate-none [&>button]:hidden"
               >
-                <DrawerHeader>
-                  <DrawerTitle>{t("sales.create_new_invoice")}</DrawerTitle>
-                  <DrawerDescription>
+                <div className="mx-auto mt-4 h-2 w-[100px] shrink-0 rounded-full bg-muted" />
+                <DialogHeader className="p-4">
+                  <DialogTitle>{t("sales.create_new_invoice")}</DialogTitle>
+                  <DialogDescription>
                     {t("sales.generate_invoice")}
-                  </DrawerDescription>
-                </DrawerHeader>
+                  </DialogDescription>
+                </DialogHeader>
                 <div
                   className="min-h-0 flex-1 touch-pan-y overflow-y-auto overscroll-contain px-4 pb-4 flex flex-col gap-6"
-                  data-vaul-no-drag
                 >
                   <Button
                     ref={cameraOpenButtonRef}
@@ -3004,7 +2988,7 @@ export default function Sales() {
                     />
                   </div>
                 </div>
-                <DrawerFooter className="shrink-0 border-t bg-background/95 pb-[calc(1rem+env(safe-area-inset-bottom))] backdrop-blur">
+                <div className="mt-auto flex shrink-0 flex-col gap-2 border-t bg-background/95 p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] backdrop-blur">
                   <Button
                     className="w-full"
                     onClick={createInvoice}
@@ -3026,9 +3010,9 @@ export default function Sales() {
                   >
                     <X className="mr-2 h-4 w-4" /> {t("common.cancel")}
                   </Button>
-                </DrawerFooter>
-              </DrawerContent>
-            </Drawer>
+                </div>
+              </DialogContent>
+            </Dialog>
             <Dialog
               open={isCameraOpen}
               onOpenChange={(open) => {
@@ -3040,12 +3024,11 @@ export default function Sales() {
                   event.preventDefault();
                   cameraOpenButtonRef.current?.focus({ preventScroll: true });
                   cameraSessionRef.current = false;
-                  setIsCameraClosing(false);
                 }}
                 className="fixed inset-0 left-0 top-0 z-[60] h-[100dvh] w-screen max-w-none translate-x-0 translate-y-0 gap-0 overflow-hidden rounded-none border-0 bg-black p-0 data-[state=open]:animate-none data-[state=closed]:animate-none [&>button]:hidden"
               >
                 <DialogTitle className="sr-only">{t("sales.open_camera")}</DialogTitle>
-                <div className="relative h-full w-full bg-black" data-vaul-no-drag>
+                <div className="relative h-full w-full bg-black">
                   <video
                     ref={cameraVideoRef}
                     autoPlay
