@@ -87,7 +87,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const isMobile = useIsMobile();
   const { toast } = useToast();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user } = useAuthStore();
   const accessToken = useAuthStore((s) => s.accessToken);
 
@@ -1000,7 +1000,7 @@ export default function Dashboard() {
     const reportData = {
       reportType: "Dashboard Overview",
       generatedAt: new Date().toISOString(),
-      dateRange: `Last ${NodeFilter} days`,
+      dateRange: "Current snapshot",
       summary: {
         totalRevenue: 45231.89,
         totalProducts: totalProducts || 2350,
@@ -1014,9 +1014,8 @@ export default function Dashboard() {
         },
       },
       salesData: computedSalesData,
-      productCategories: productCategories,
-      recentActivities: filteredActivities,
-      lowStockItems: lowStockItems,
+      productCategories: categoryDist,
+      lowStockItems: lowStockDynamic,
       quickStats: [
         {
           metric: "Total Sales",
@@ -1086,9 +1085,6 @@ ${t("dashboard.products")}: ${nf(data.summary.totalProducts)}
 ${t("dashboard.active_clients")}: ${nf(data.summary.activeClients)}
 ${t("dashboard.sales_today")}: ${nf(data.summary.salesToday)}
 
-${t("dashboard.recent_activity")}
-=================
-${data.recentActivities.map((activity: any) => `${activity.time} - ${activity.description}${activity.amount ? ` (${nf(activity.amount)} TJS)` : ""}`).join("\n")}
     `;
   };
 

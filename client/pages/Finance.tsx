@@ -2095,7 +2095,10 @@ ${data.transactions
                     </SelectItem>
                   </SelectContent>
                 </Select>
-                <Select value={timeFilter} onValueChange={setTimeFilter}>
+                <Select
+                  value={timeFilter}
+                  onValueChange={(value) => setTimeFilter(value as typeof timeFilter)}
+                >
                   <SelectTrigger className="w-full sm:w-[150px]">
                     <Clock className="mr-2 h-4 w-4" />
                     <SelectValue placeholder={t("common.date_time")} />
@@ -3052,8 +3055,9 @@ ${data.transactions
                 </div>
                 <Badge
                   variant={
-                    newTransaction.type === "income" ? "success" : "destructive"
+                    newTransaction.type === "income" ? "secondary" : "destructive"
                   }
+                  className={newTransaction.type === "income" ? "bg-green-100 text-green-800" : undefined}
                 >
                   {newTransaction.type === "income"
                     ? t("finance.income")

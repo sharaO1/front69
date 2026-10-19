@@ -1,5 +1,9 @@
 {
   "common": {
+    "type": "Type",
+    "found": "found",
+    "with": "with",
+    "not_found": "not found",
     "add": "Add",
     "edit": "Edit",
     "delete": "Delete",

@@ -242,7 +242,7 @@ function getStructuredTable(
       if ((data as any).type === "table" && Array.isArray((data as any).data)) {
         const rows = (data as any).data;
         const cols = Array.from(
-          rows.reduce<Set<string>>((s: Set<string>, r: any) => {
+          (rows as any[]).reduce<Set<string>>((s: Set<string>, r: any) => {
             Object.keys(r || {}).forEach((k) => s.add(k));
             return s;
           }, new Set<string>()),
@@ -382,7 +382,7 @@ export default function AIChat({
   const [isTyping, setIsTyping] = useState(false);
 
   const listRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
   const scrollToBottom = useCallback((smooth = false) => {

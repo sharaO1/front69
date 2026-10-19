@@ -134,6 +134,8 @@ interface StockMovement {
   reference?: string;
   supplier?: string;
   customer?: string;
+  party?: string;
+  partyName?: string;
 }
 
 interface WarehouseHistory {

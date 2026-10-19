@@ -800,7 +800,7 @@ export default function Clients() {
               <TableHeader>
                 <TableRow>
                   <TableHead
-                    aria-sort={sortKey === "name" ? sortOrder : undefined}
+                    aria-sort={sortKey === "name" ? (sortOrder === "asc" ? "ascending" : "descending") : undefined}
                   >
                     <button
                       type="button"
@@ -812,7 +812,7 @@ export default function Clients() {
                     </button>
                   </TableHead>
                   <TableHead
-                    aria-sort={sortKey === "type" ? sortOrder : undefined}
+                    aria-sort={sortKey === "type" ? (sortOrder === "asc" ? "ascending" : "descending") : undefined}
                   >
                     <button
                       type="button"
@@ -826,7 +826,7 @@ export default function Clients() {
                   <TableHead>{t("clients.contact")}</TableHead>
                   <TableHead
                     aria-sort={
-                      sortKey === "currentDebt" ? sortOrder : undefined
+                      sortKey === "currentDebt" ? (sortOrder === "asc" ? "ascending" : "descending") : undefined
                     }
                   >
                     <button
@@ -839,7 +839,7 @@ export default function Clients() {
                     </button>
                   </TableHead>
                   <TableHead
-                    aria-sort={sortKey === "status" ? sortOrder : undefined}
+                    aria-sort={sortKey === "status" ? (sortOrder === "asc" ? "ascending" : "descending") : undefined}
                   >
                     <button
                       type="button"
