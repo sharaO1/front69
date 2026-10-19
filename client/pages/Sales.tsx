@@ -276,6 +276,7 @@ export default function Sales() {
   const [showCustomerDetails, setShowCustomerDetails] = useState(false);
   const [showPaymentDetails, setShowPaymentDetails] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
+  const [showManualItem, setShowManualItem] = useState(false);
 
   // Default return date for borrowed items: 7 days from today
   const defaultReturnDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
@@ -565,6 +566,10 @@ export default function Sales() {
     );
 
   // Reset form state when the invoice dialog closes.
+  useEffect(() => {
+    if (isCreateDialogOpen && isMobile) openCamera();
+  }, [isCreateDialogOpen, isMobile]);
+
   useEffect(() => {
     if (!isCreateDialogOpen) {
       clearNewInvoice();
@@ -1467,6 +1472,7 @@ export default function Sales() {
     setShowCustomerDetails(false);
     setShowPaymentDetails(false);
     setShowNotes(false);
+    setShowManualItem(false);
     setBorrowReturnDate(defaultReturnDate);
   };
 
@@ -2650,8 +2656,17 @@ export default function Sales() {
                     )}
                   </div>
 
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="order-1 flex w-full items-center justify-between"
+                    onClick={() => setShowManualItem((visible) => !visible)}
+                  >
+                    <span>{t("sales.manual_item_optional", "Add item manually (optional)")}</span>
+                    <span className="text-lg leading-none">{showManualItem ? "−" : "+"}</span>
+                  </Button>
                   {/* Add Item Section */}
-                  <div className="order-1  rounded-lg border border-primary/20 bg-primary/[0.03] p-4 space-y-4">
+                  <div className={`order-1 rounded-lg border border-primary/20 bg-primary/[0.03] p-4 space-y-4 ${showManualItem ? "" : "hidden"}`}>
                     <h3 className="font-semibold flex items-center gap-2">
                       <Plus className="h-4 w-4" />
                       {t("sales.add_invoice_item")}
