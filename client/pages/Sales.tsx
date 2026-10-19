@@ -2477,7 +2477,7 @@ export default function Sales() {
                     className="order-2 flex w-full items-center justify-between"
                     onClick={() => setShowCustomerDetails((visible) => !visible)}
                   >
-                    <span>{t("sales.customer_details", "Customer & borrowing (optional)")}</span>
+                    <span>{t("sales.customer_details", "Customer & borrowing")}</span>
                     <span className="text-lg leading-none">{showCustomerDetails ? "−" : "+"}</span>
                   </Button>
                   {/* Client Information */}
@@ -2662,7 +2662,7 @@ export default function Sales() {
                     className="order-1 flex w-full items-center justify-between"
                     onClick={() => setShowManualItem((visible) => !visible)}
                   >
-                    <span>{t("sales.manual_item_optional", "Add item manually (optional)")}</span>
+                    <span>{t("sales.manual_item_optional", "Add item manually")}</span>
                     <span className="text-lg leading-none">{showManualItem ? "−" : "+"}</span>
                   </Button>
                   {/* Add Item Section */}
@@ -3134,7 +3134,7 @@ export default function Sales() {
                     className="order-2 flex w-full items-center justify-between"
                     onClick={() => setShowCustomerDetails((visible) => !visible)}
                   >
-                    <span>{t("sales.customer_details", "Customer & borrowing (optional)")}</span>
+                    <span>{t("sales.customer_details", "Customer & borrowing")}</span>
                     <span className="text-lg leading-none">{showCustomerDetails ? "−" : "+"}</span>
                   </Button>
                   {/* Client Information */}
