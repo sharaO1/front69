@@ -102,7 +102,6 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import { string } from "zod";
 import { useRBACStore } from "@/stores/rbacStore";
 import { useAuthStore } from "@/stores/authStore";
 import {
@@ -134,6 +133,7 @@ interface Employee {
   skills: string[];
   notes: string;
   salesTarget?: number;
+  updatedAt?: string;
 }
 
 interface WorkerApiItem {
@@ -306,7 +306,7 @@ const departmentData = [
 ];
 
 export default function Employees() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [dailySales, setDailySales] = useState(mockDailySales);
   const [timeEntries, setTimeEntries] = useState<TimeEntry[]>([]);

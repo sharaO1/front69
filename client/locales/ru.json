@@ -1,5 +1,9 @@
 {
   "common": {
+    "type": "Тип",
+    "found": "найден",
+    "with": "с",
+    "not_found": "не найден",
     "add": "Добавить",
     "edit": "Редактировать",
     "delete": "Удалить",
@@ -52,7 +56,13 @@
     "not_enough_stock": "Недостаточно товара на складе",
     "units_available": "Доступно только {{count}} шт.",
     "product_required": "Выберите товар и укажите количество",
-    "selected_product_not_found": "Выбранный товар не найден"
+    "selected_product_not_found": "Выбранный товар не найден",
+    "period": "Период",
+    "changes_saved": "Изменения сохранены",
+    "year": "Год",
+    "mark_as_returned": "Отметить как возвращённое",
+    "unnamed": "Без названия",
+    "page": "Страница"
   },
   "auth": {
     "login": "Вход",
@@ -239,7 +249,8 @@
       "load_movements": "Не удалось загрузить операции склада",
       "load_history": "Не удалось загрузить историю склада",
       "failed_add_stock": "Не удалось добавить запас",
-      "failed_remove_stock": "Не удалось списать запас"
+      "failed_remove_stock": "Не удалось списать запас",
+      "load_categories": "Не удалось загрузить категории."
     },
     "toast": {
       "product_added_title": "Товар добавлен",
@@ -335,7 +346,10 @@
       "created_product": "Создан новый товар: {{name}}",
       "updated_product": "Обновлен товар: {{name}}",
       "deleted_product": "Удален товар: {{name}}"
-    }
+    },
+    "product": "Товар",
+    "invalid_date_range": "Неверный диапазон дат",
+    "no_categories": "Нет категорий"
   },
   "clients": {
     "title": "Управление клиентами",
@@ -370,6 +384,7 @@
     "additional_notes": "Дополнительные заметки о клиенте",
     "client_details": "Детали клиента",
     "complete_information": "Полная информация для",
+    "id_card_number": "Номер удостоверения личности",
     "total_purchases": "Общие покупки",
     "current_debt": "Текущий долг",
     "last_purchase": "Последняя покупка",
@@ -391,7 +406,9 @@
       "reminder_title": "Напоминание отправлено",
       "reminder_desc_prefix": "Напоминание об оплате отправлено",
       "reminder_desc_suffix": "по email и SMS."
-    }
+    },
+    "no_products": "Нет данных",
+    "name": "Имя"
   },
   "filials": {
     "title": "Управление филиалами",
@@ -558,7 +575,6 @@
     "showing_invoices": "Показано {{count}} из {{total}} счетов",
     "total_value": "Общая сумма",
     "no_employee": "Без сотрудника",
-    "payment": "Платеж",
     "cancellation_details": "Детали отмены",
     "reason": "Причина",
     "cancelled_by": "Отменил",
@@ -596,7 +612,10 @@
       "generated_on": "Сформировано",
       "sales_employee": "Сотрудник продаж"
     },
-    "sales_employee": "Сотрудник продаж"
+    "sales_employee": "Сотрудник продаж",
+    "official_seal": "Официальная печать",
+    "manual_item_optional": "Добавить товар вручную",
+    "mark_borrow": "Отметить займ"
   },
   "finance": {
     "title": "Финансовое управление",
@@ -707,7 +726,10 @@
       "transactions_exported_desc": "Данные транзакций экспортированы в CSV.",
       "goals_exported_title": "Цели экспортированы",
       "goals_exported_desc": "Финансовые цели экспортированы в CSV."
-    }
+    },
+    "category_help": "например: маркетинг, коммунальные услуги",
+    "description_placeholder": "Для чего это?",
+    "description_help": "Короткая заметка на будущее"
   },
   "employees": {
     "title": "Управление сотрудниками",
@@ -876,10 +898,10 @@
     "notification_settings": "Параметры уведомлений",
     "choose_notifications": "Выберите, какие уведомления вы хотите получать",
     "email_notifications": "Email уведомления",
-    "receive_via_email": "Получать уведомления по электронной почте",
+    "receive_via_email": "Получать уведомления по email",
     "low_stock_alerts": "Оповещения о низком запасе",
     "low_stock_desc": "Когда запасы падают ниже минимального уровня",
-    "payment_reminders": "Напоминания об оплате",
+    "payment_reminders": "Напоминания о платежах",
     "payment_reminders_desc": "Уведомления о просроченных счетах и платежах",
     "system_updates": "Системные обновления",
     "system_updates_desc": "Уведомления об обновлениях ПО и обслуживании",
@@ -895,7 +917,7 @@
     "save_security": "Сохранить безопасность",
     "change_password": "Изменить пароль",
     "change_password_desc": "Обновите пароль своего аккаунта",
-    "password_requirements": "Требования к паролю",
+    "password_requirements": "Требования к паролям и политики",
     "min_6_chars": "Минимум 6 символов",
     "one_uppercase": "Хотя бы одна заглавная буква",
     "one_number": "Хотя бы одна цифра",
@@ -938,8 +960,6 @@
     "switch_themes": "Переключение между светлой и темной темами",
     "notification_channels": "Каналы уведомлений",
     "choose_notification_method": "Выберите, как вы хотите получать уведомления",
-    "email_notifications": "Email уведомления",
-    "receive_via_email": "Получать уведомления по email",
     "sms_notifications": "SMS уведомления",
     "receive_via_sms": "Получать уведомления по SMS",
     "push_notifications": "Push-уведомления",
@@ -947,36 +967,23 @@
     "save_channels": "Сохранить каналы",
     "alert_types": "Типы оповещений",
     "configure_events": "Настройте, какие события вызывают уведомления",
-    "low_stock_alerts": "Оповещения о низком запасе",
     "inventory_minimum": "Когда запасы падают ниже минимального уровня",
-    "payment_reminders": "Напоминания о платежах",
     "overdue_notifications": "Уведомления о просроченных счетах и платежах",
-    "system_updates": "Системные обновления",
     "maintenance_notices": "Уведомления об обновлениях ПО и обслуживании",
     "weekly_reports": "Еженедельные отчеты",
     "automated_reports": "Автоматические еженедельные бизнес-отчеты",
     "save_alerts": "Сохранить оповещения",
     "authentication": "Аутентификация",
     "login_access_security": "Настройте безопасность входа и досту��а",
-    "two_factor_auth": "Двухфакторная аутентификация",
     "extra_security": "Добавьте дополнительный уровень безопасности к вашему аккаунту",
-    "session_timeout": "Таймаут сессии (минуты)",
-    "max_login_attempts": "Максимальное количество попыток входа",
     "audit_logging": "Аудит логирования",
     "log_activities": "Записывать все действия пользователей для аудита безопасности",
-    "save_security": "Сохранить безопасность",
     "password_policy": "Политика паролей",
-    "password_requirements": "Требования к паролям и политики",
     "password_expiry": "Срок действия пароля (дни)",
     "password_requirements_list": "Требования к паролю",
     "minimum_characters": "Минимум 8 символов",
     "uppercase_letter": "Хотя бы одна заглавная буква",
-    "one_number": "Хотя бы одна цифра",
     "special_character": "Хотя бы один специальный символ",
-    "change_password": "Изменить пароль",
-    "current_password": "Текущий пароль",
-    "new_password": "Новый пароль",
-    "confirm_new_password": "Подтвердите новый пароль",
     "backup_configuration": "Конфигурация резервного копирования",
     "configure_auto_backups": "Настройте автоматическое резервное копирование данных",
     "automatic_backups": "Автоматические резервные копии",
@@ -993,7 +1000,6 @@
     "export_all_data": "Экспортировать все данные",
     "danger_zone": "Опасная зона",
     "delete_all_backups": "Удалить все резервные копии",
-    "account_information": "Информация об аккаунте",
     "manage_personal_details": "Управляйте своими личными данными",
     "edit_profile": "Редактировать профиль",
     "subscription_billing": "Подписка и выставление счетов",
@@ -1029,7 +1035,10 @@
     "local_storage": "Локальное хранилище",
     "external_drive": "Внешний диск",
     "network_drive": "Сетевой диск",
-    "days_ago": "дней, 7 часов назад"
+    "days_ago": "дней, 7 часов назад",
+    "appearance_desc": "Выберите язык и тему",
+    "theme": "Тема",
+    "light_mode": "Светлая тема"
   },
   "status": {
     "active": "Активный",
@@ -1216,7 +1225,9 @@
         "validation": {
           "required_fields": "паполните все об��зательные поля: имя, фамилия, email, пароль и филиал",
           "password_min": "Длина пароля должна быть не менее 6 символов"
-        }
+        },
+        "security_notice_title": "Примечание о безопасности",
+        "security_notice_message": "Передавайте данные для входа только новому пользователю."
       }
     },
     "roles": {

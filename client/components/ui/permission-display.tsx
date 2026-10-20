@@ -222,6 +222,7 @@ interface RoleComparisonProps {
 }
 
 export function RoleComparison({ roles, className }: RoleComparisonProps) {
+  const { t } = useTranslation();
   const [selectedRoles, setSelectedRoles] = useState<Set<Role>>(
     new Set(roles.slice(0, 2)),
   );
@@ -281,7 +282,7 @@ export function RoleComparison({ roles, className }: RoleComparisonProps) {
             {allResources.map((resource) => (
               <tr key={resource}>
                 <td className="border border-border p-2 font-medium">
-                  {resourceLabels[resource]}
+                  {labelForResource(t, resource)}
                 </td>
                 {Array.from(selectedRoles).map((role) => {
                   const permissions = ROLE_PERMISSIONS[role];

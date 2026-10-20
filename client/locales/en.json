@@ -1,5 +1,9 @@
 {
   "common": {
+    "type": "Type",
+    "found": "found",
+    "with": "with",
+    "not_found": "not found",
     "add": "Add",
     "edit": "Edit",
     "delete": "Delete",
@@ -52,7 +56,13 @@
     "not_enough_stock": "Not enough stock",
     "units_available": "Only {{count}} units are available.",
     "product_required": "Please select a product and enter quantity",
-    "selected_product_not_found": "Selected product not found"
+    "selected_product_not_found": "Selected product not found",
+    "period": "Period",
+    "changes_saved": "Changes saved",
+    "year": "Year",
+    "mark_as_returned": "Mark as returned",
+    "unnamed": "Unnamed",
+    "page": "Page"
   },
   "auth": {
     "login": "Login",
@@ -239,7 +249,8 @@
       "load_movements": "Failed to load stock movements",
       "load_history": "Failed to load warehouse history",
       "failed_add_stock": "Failed to add stock",
-      "failed_remove_stock": "Failed to remove stock"
+      "failed_remove_stock": "Failed to remove stock",
+      "load_categories": "Failed to load categories."
     },
     "toast": {
       "product_added_title": "Product added",
@@ -335,7 +346,10 @@
       "created_product": "Created new product: {{name}}",
       "updated_product": "Updated product: {{name}}",
       "deleted_product": "Deleted product: {{name}}"
-    }
+    },
+    "product": "Product",
+    "invalid_date_range": "Invalid date range",
+    "no_categories": "No categories"
   },
   "clients": {
     "title": "Client Management",
@@ -370,6 +384,7 @@
     "additional_notes": "Additional notes about the client",
     "client_details": "Client Details",
     "complete_information": "Complete information for",
+    "id_card_number": "ID card number",
     "total_purchases": "Total Purchases",
     "current_debt": "Current Debt",
     "last_purchase": "Last Purchase",
@@ -391,7 +406,9 @@
       "reminder_title": "Reminder sent",
       "reminder_desc_prefix": "Payment reminder sent to",
       "reminder_desc_suffix": "via email and SMS."
-    }
+    },
+    "no_products": "No data",
+    "name": "Name"
   },
   "filials": {
     "title": "Filials Management",
@@ -484,7 +501,7 @@
     "title": "Sales Management",
     "subtitle": "Create invoices and manage sales transactions",
     "new_invoice": "New Invoice",
-    "customer_details": "Customer & borrowing (optional)",
+    "customer_details": "Customer & borrowing",
     "total_invoices": "Total Invoices",
     "total_revenue": "Total Revenue",
     "pending_amount": "Pending Amount",
@@ -558,7 +575,6 @@
     "showing_invoices": "Showing {{count}} of {{total}} invoices",
     "total_value": "Total Value",
     "no_employee": "No employee",
-    "payment": "Payment",
     "cancellation_details": "Cancellation Details",
     "reason": "Reason",
     "cancelled_by": "Cancelled by",
@@ -596,7 +612,10 @@
     "open_camera": "Open camera",
     "quantity_to_add": "Quantity to Add",
     "period": "Period",
-    "invalid_date_range": "Invalid date range"
+    "invalid_date_range": "Invalid date range",
+    "official_seal": "Official Seal",
+    "manual_item_optional": "Add item manually",
+    "mark_borrow": "Mark Borrow"
   },
   "finance": {
     "title": "Financial Management",
@@ -707,7 +726,10 @@
       "transactions_exported_desc": "Transaction data exported as CSV.",
       "goals_exported_title": "Goals exported",
       "goals_exported_desc": "Financial goals exported as CSV."
-    }
+    },
+    "category_help": "e.g. Marketing, Utilities",
+    "description_placeholder": "What is this for?",
+    "description_help": "Short note to remember later"
   },
   "employees": {
     "title": "Employee Management",
@@ -895,7 +917,7 @@
     "save_security": "Save Security",
     "change_password": "Change Password",
     "change_password_desc": "Update your account password",
-    "password_requirements": "Password Requirements",
+    "password_requirements": "Password requirements and policies",
     "min_6_chars": "Minimum 6 characters",
     "one_uppercase": "At least one uppercase letter",
     "one_number": "At least one number",
@@ -938,8 +960,6 @@
     "switch_themes": "Switch between light and dark themes",
     "notification_channels": "Notification Channels",
     "choose_notification_method": "Choose how you want to receive notifications",
-    "email_notifications": "Email Notifications",
-    "receive_via_email": "Receive notifications via email",
     "sms_notifications": "SMS Notifications",
     "receive_via_sms": "Receive notifications via SMS",
     "push_notifications": "Push Notifications",
@@ -947,36 +967,23 @@
     "save_channels": "Save Channels",
     "alert_types": "Alert Types",
     "configure_events": "Configure which events trigger notifications",
-    "low_stock_alerts": "Low Stock Alerts",
     "inventory_minimum": "When inventory falls below minimum levels",
-    "payment_reminders": "Payment Reminders",
     "overdue_notifications": "Overdue invoice and payment notifications",
-    "system_updates": "System Updates",
     "maintenance_notices": "Software updates and maintenance notices",
     "weekly_reports": "Weekly Reports",
     "automated_reports": "Automated weekly business reports",
     "save_alerts": "Save Alerts",
     "authentication": "Authentication",
     "login_access_security": "Configure login and access security",
-    "two_factor_auth": "Two-Factor Authentication",
     "extra_security": "Add an extra layer of security to your account",
-    "session_timeout": "Session Timeout (minutes)",
-    "max_login_attempts": "Max Login Attempts",
     "audit_logging": "Audit Logging",
     "log_activities": "Log all user activities for security audits",
-    "save_security": "Save Security",
     "password_policy": "Password Policy",
-    "password_requirements": "Password requirements and policies",
     "password_expiry": "Password Expiry (days)",
     "password_requirements_list": "Password Requirements",
     "minimum_characters": "Minimum 8 characters",
     "uppercase_letter": "At least one uppercase letter",
-    "one_number": "At least one number",
     "special_character": "At least one special character",
-    "change_password": "Change Password",
-    "current_password": "Current password",
-    "new_password": "New password",
-    "confirm_new_password": "Confirm new password",
     "backup_configuration": "Backup Configuration",
     "configure_auto_backups": "Configure automatic data backups",
     "automatic_backups": "Automatic Backups",
@@ -993,7 +1000,6 @@
     "export_all_data": "Export All Data",
     "danger_zone": "Danger Zone",
     "delete_all_backups": "Delete All Backups",
-    "account_information": "Account Information",
     "manage_personal_details": "Manage your personal account details",
     "edit_profile": "Edit Profile",
     "subscription_billing": "Subscription & Billing",
@@ -1029,7 +1035,10 @@
     "local_storage": "Local Storage",
     "external_drive": "External Drive",
     "network_drive": "Network Drive",
-    "days_ago": "days, 7 hours"
+    "days_ago": "days, 7 hours",
+    "appearance_desc": "Choose your language and theme",
+    "theme": "Theme",
+    "light_mode": "Light mode"
   },
   "status": {
     "active": "Active",
@@ -1216,7 +1225,9 @@
         "validation": {
           "required_fields": "Please fill in all required fields including first and last name and work location",
           "password_min": "Password must be at least 6 characters long"
-        }
+        },
+        "security_notice_title": "Security notice",
+        "security_notice_message": "Share the login details only with the new user."
       }
     },
     "roles": {
