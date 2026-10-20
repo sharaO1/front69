@@ -56,7 +56,13 @@
     "not_enough_stock": "Захира кофӣ нест",
     "units_available": "Танҳо {{count}} адад дастрас аст.",
     "product_required": "Маҳсулотро интихоб карда, миқдорро ворид кунед",
-    "selected_product_not_found": "Маҳсулоти интихобшуда ёфт нашуд"
+    "selected_product_not_found": "Маҳсулоти интихобшуда ёфт нашуд",
+    "period": "Давра",
+    "changes_saved": "Тағйирот захира шуд",
+    "year": "Сол",
+    "mark_as_returned": "Ҳамчун баргардонидашуда қайд кардан",
+    "unnamed": "Бе ном",
+    "page": "Саҳифа"
   },
   "auth": {
     "login": "Ворид шудан",
@@ -243,7 +249,8 @@
       "load_movements": "Боркунии ҳаракатҳои захира ноком шуд",
       "load_history": "Боркунии таърихи анбор ноком шуд",
       "failed_add_stock": "Иловаи захира ноком шуд",
-      "failed_remove_stock": "Хориҷ кардани захира ноком шуд"
+      "failed_remove_stock": "Хориҷ кардани захира ноком шуд",
+      "load_categories": "Боркунии категорияҳо ноком шуд."
     },
     "toast": {
       "product_added_title": "Маҳсулот илова шуд",
@@ -339,7 +346,10 @@
       "created_product": "Маҳсулоти нав эҷод шуд: {{name}}",
       "updated_product": "Маҳсулот навсозӣ шуд: {{name}}",
       "deleted_product": "Маҳсулот ҳазф шуд: {{name}}"
-    }
+    },
+    "product": "Маҳсулот",
+    "invalid_date_range": "Фосилаи нодурусти сана",
+    "no_categories": "Категория нест"
   },
   "clients": {
     "title": "Идоракунии муштариён",
@@ -396,7 +406,9 @@
       "reminder_title": "Ёдоварӣ фиристода шуд",
       "reminder_desc_prefix": "Ёдоварии пардохт ба",
       "reminder_desc_suffix": "тавассути email ва SMS фиристод�� шуд."
-    }
+    },
+    "no_products": "Маълумот нест",
+    "name": "Ном"
   },
   "filials": {
     "title": "Идоракунии филиалҳо",
@@ -563,7 +575,6 @@
     "showing_invoices": "Намоиши {{count}} аз {{total}} ҳисобфактура",
     "total_value": "Арзиши умумӣ",
     "no_employee": "Бе корманд",
-    "payment": "Пардохт",
     "cancellation_details": "Тафсилоти бекорхонӣ",
     "reason": "Сабаб",
     "cancelled_by": "Бекор кард",
@@ -591,7 +602,18 @@
       "invoice_downloaded_title": "Ҳисобфактура боргирӣ шуд",
       "invoice_downloaded_desc": "PDF-и ҳисобфактура эҷод ва боргирӣ шуд.",
       "invoice_downloaded_desc_number": "Ҳисобфактураи {{number}} ҳамчун PDF боргирӣ шуд."
-    }
+    },
+    "official_seal": "Муҳри расмӣ",
+    "manual_item_optional": "Иловаи маҳсулот бо дасти худ",
+    "mark_borrow": "Қарзро қайд кардан",
+    "report": {
+      "invoice_heading": "ҲИСОБНОМА",
+      "client_information": "Маълумот дар бораи муштарӣ",
+      "invoice_details": "Тафсилоти ҳисобнома",
+      "summary": "Хулоса",
+      "generated_on": "Таҳияшуда"
+    },
+    "sales_employee": "Фурӯшанда"
   },
   "finance": {
     "title": "Идоракунии молиявӣ",
@@ -702,7 +724,10 @@
       "transactions_exported_desc": "Маълумоти муомилот ба CSV содир шуд.",
       "goals_exported_title": "Ҳадафҳо содир шуданд",
       "goals_exported_desc": "Ҳадафҳои молиявӣ ба CSV содир шуданд."
-    }
+    },
+    "category_help": "масалан: маркетинг, коммуналӣ",
+    "description_placeholder": "Ин барои чист?",
+    "description_help": "Ёддошти кӯтоҳ барои баъдтар"
   },
   "employees": {
     "title": "Идоракунии кормандон",
@@ -947,7 +972,71 @@
     "local_storage": "Захирагоҳи маҳаллӣ",
     "external_drive": "Диски беруна",
     "network_drive": "Диски шабака",
-    "days_ago": "рӯз, 7 соат пеш"
+    "days_ago": "рӯз, 7 соат пеш",
+    "appearance_desc": "Забон ва мавзӯъро интихоб кунед",
+    "theme": "Мавзӯъ",
+    "light_mode": "Ҳолати равшан",
+    "settings_saved": "Танзимот захира шуд",
+    "settings_saved_desc": "Танзимоти система бомуваффақият навсозӣ шуд.",
+    "notifications_updated": "Огоҳиҳо навсозӣ шуданд",
+    "notifications_updated_desc": "Афзалиятҳои огоҳиҳои шумо захира шуданд.",
+    "security_updated": "Амният навсозӣ шуд",
+    "security_updated_desc": "Танзимоти амният татбиқ шуд.",
+    "error": "Хато",
+    "fill_all_fields": "Лутфан, ҳамаи майдонҳои паролро пур кунед.",
+    "passwords_not_match": "Паролҳои нав мувофиқат намекунанд.",
+    "password_too_short": "Парол бояд ҳадди ақал 6 аломат дошта бошад.",
+    "password_changed": "Парол иваз шуд",
+    "password_changed_desc": "Пароли шумо бомуваффақият навсозӣ шуд.",
+    "failed_load_categories": "Боркунии категорияҳо ноком шуд.",
+    "enter_category_name": "Лутфан, номи категорияро ворид кунед.",
+    "category_updated": "Категорияи \"{{name}}\" бомуваффақият навсозӣ шуд.",
+    "category_created": "Категорияи \"{{name}}\" бомуваффақият илова шуд.",
+    "failed_save_category": "Захираи категория ноком шуд. Лутфан, бори дигар кӯшиш кунед.",
+    "category_deleted": "Категория бомуваффақият нест карда шуд.",
+    "failed_delete_category": "Нест кардани категория ноком шуд. Лутфан, бори дигар кӯшиш кунед.",
+    "company_phone": "Телефон",
+    "edit_product_category": "Таҳрири категорияи маҳсулот",
+    "add_product_category": "Иловаи категорияи маҳсулот",
+    "update_category_details": "Навсозии тафсилоти категория",
+    "create_new_product_category": "Категорияи нави маҳсулотро барои анбори худ эҷод кунед",
+    "category_name": "Номи категория *",
+    "category_name_placeholder": "масалан: Нақлиёт, Электроника, Либос",
+    "description": "Тавсиф",
+    "category_description_placeholder": "масалан: Ин категория дар бораи нақлиёт аст",
+    "updating": "Навсозӣ...",
+    "update_category": "Навсозии категория",
+    "adding": "Илова карда мешавад...",
+    "add_category": "Иловаи категория",
+    "cancel": "Бекор кардан",
+    "manage_categories": "Идоракунии категорияҳо",
+    "manage_categories_desc": "Категорияҳои маҳсулотро дидан, таҳрир ва нест кардан",
+    "loading_categories": "Категорияҳо боргузорӣ мешаванд...",
+    "no_categories": "Ҳоло категория нест. Дар боло яктоӣ эҷод кунед.",
+    "edit_category": "Таҳрири категория",
+    "delete_category": "Нест кардани категория",
+    "delete_category_title": "Нест кардани категория",
+    "delete_category_desc": "Мутмаин ҳастед, ки мехоҳед категорияи \"{{name}}\"-ро нест кунед? Ин амалро бозгардондан мумкин нест.",
+    "notification_settings": "Танзимоти огоҳиҳо",
+    "choose_notifications": "Интихоб кунед, кадом огоҳиҳоро мегиред",
+    "low_stock_desc": "Вақте ки захира аз ҳадди ақал паст мешавад",
+    "payment_reminders_desc": "Огоҳии ҳисобнома ва пардохтҳои муддататаркардашуда",
+    "system_updates_desc": "Навсозиҳои барнома ва огоҳиҳои нигоҳдорӣ",
+    "security_alerts": "Огоҳиҳои амниятӣ",
+    "security_alerts_desc": "Кӯшишҳои нокоми воридшавӣ ва рӯйдодҳои амниятӣ",
+    "save_notifications": "Захираи огоҳиҳо",
+    "security_settings": "Танзимоти амният",
+    "security_settings_desc": "Амнияти воридшавӣ ва дастрасиро танзим кунед",
+    "two_factor_auth_desc": "Ба ҳисоби худ сатҳи иловагии амниятро илова кунед",
+    "change_password_desc": "Паролҳои ҳисоби худро навсозӣ кунед",
+    "min_6_chars": "Ҳадди ақал 6 аломат",
+    "one_uppercase": "Ҳадди ақал як ҳарфи калон",
+    "change_password_label": "Иваз кардани парол",
+    "manage_account_details": "Тафсилоти ҳисоб ва профили худро идора кунед",
+    "user_id": "Шиносаи корбар",
+    "role": "Нақш",
+    "status": "Ҳолат",
+    "active": "Фаъол"
   },
   "status": {
     "active": "Фаъол",
@@ -1134,7 +1223,9 @@
         "validation": {
           "required_fields": "Ҳама майдонҳои ҳатмӣ аз ҷумла ном, насаб, email, пар��л ва филиалро пур кунед",
           "password_min": "Парол бояд на камтар аз 6 аломат бошад"
-        }
+        },
+        "security_notice_title": "Огоҳии амниятӣ",
+        "security_notice_message": "Маълумоти воридшавиро танҳо ба корбари нав диҳед."
       }
     },
     "roles": {
