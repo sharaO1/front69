@@ -68,6 +68,7 @@ interface Client {
   totalPurchases: number;
   lastPurchase: string;
   notes: string;
+  idCardNumber?: string;
 }
 
 import { API_BASE } from "@/lib/api";
@@ -75,6 +76,26 @@ import { API_BASE } from "@/lib/api";
 type SortKey = "name" | "type" | "currentDebt" | "status" | "totalPurchases";
 
 type SortOrder = "asc" | "desc";
+
+const ID_CARD_STORAGE_KEY = "clientIdCardNumbers";
+
+const readIdCardNumbers = (): Record<string, string> => {
+  try {
+    return JSON.parse(localStorage.getItem(ID_CARD_STORAGE_KEY) || "{}");
+  } catch {
+    return {};
+  }
+};
+
+const saveIdCardNumber = (clientId: string, idCardNumber: string) => {
+  const idCardNumbers = readIdCardNumbers();
+  if (idCardNumber) {
+    idCardNumbers[clientId] = idCardNumber;
+  } else {
+    delete idCardNumbers[clientId];
+  }
+  localStorage.setItem(ID_CARD_STORAGE_KEY, JSON.stringify(idCardNumbers));
+};
 
 export default function Clients() {
   const { t } = useTranslation();
@@ -95,6 +116,7 @@ export default function Clients() {
     type: "retail",
     creditLimit: 1000,
     notes: "",
+    idCardNumber: "",
   });
   const { toast } = useToast();
   const [loading, setLoading] = useState(true);
@@ -113,6 +135,7 @@ export default function Clients() {
           throw new Error(data.message || "Failed to fetch clients");
         }
 
+        const idCardNumbers = readIdCardNumbers();
         const normalizedClients: Client[] = data.result.map((c: any) => ({
           id: c.id,
           name: c.userName,
@@ -126,6 +149,7 @@ export default function Clients() {
           totalPurchases: c.totalPurchases,
           lastPurchase: c.lastPurchase || "",
           notes: c.notes || "",
+          idCardNumber: idCardNumbers[c.id] || "",
         }));
 
         setClients(normalizedClients);
@@ -298,8 +322,10 @@ export default function Clients() {
         totalPurchases: result.totalPurchases,
         lastPurchase: result.lastPurchase || "",
         notes: result.notes || "",
+        idCardNumber: newClient.idCardNumber || "",
       };
 
+      saveIdCardNumber(client.id, client.idCardNumber || "");
       setClients((prev) => [...prev, client]);
       setNewClient({
         name: "",
@@ -309,6 +335,7 @@ export default function Clients() {
         type: "retail",
         creditLimit: 1000,
         notes: "",
+        idCardNumber: "",
       });
       setIsAddDialogOpen(false);
 
@@ -369,8 +396,10 @@ export default function Clients() {
         totalPurchases: result.totalPurchases,
         lastPurchase: result.lastPurchase || "",
         notes: result.notes || "",
+        idCardNumber: selectedClient.idCardNumber || "",
       };
 
+      saveIdCardNumber(updatedClient.id, updatedClient.idCardNumber || "");
       setClients((prev) =>
         prev.map((c) => (c.id === updatedClient.id ? updatedClient : c)),
       );
@@ -490,6 +519,19 @@ export default function Clients() {
                     value={newClient.phone}
                     onChange={(e) =>
                       setNewClient({ ...newClient, phone: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="idCardNumber">{t("clients.id_card_number")}</Label>
+                  <Input
+                    id="idCardNumber"
+                    value={newClient.idCardNumber}
+                    onChange={(e) =>
+                      setNewClient({
+                        ...newClient,
+                        idCardNumber: e.target.value,
+                      })
                     }
                   />
                 </div>
@@ -978,6 +1020,10 @@ export default function Clients() {
                   value: selectedClient.phone || "-",
                 },
                 {
+                  label: t("clients.id_card_number"),
+                  value: selectedClient.idCardNumber || "-",
+                },
+                {
                   label: t("clients.credit_limit"),
                   value: formatCurrency(selectedClient.creditLimit),
                 },
@@ -1042,6 +1088,19 @@ export default function Clients() {
                     setSelectedClient({
                       ...selectedClient,
                       phone: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="editIdCardNumber">{t("clients.id_card_number")}</Label>
+                <Input
+                  id="editIdCardNumber"
+                  value={selectedClient.idCardNumber || ""}
+                  onChange={(e) =>
+                    setSelectedClient({
+                      ...selectedClient,
+                      idCardNumber: e.target.value,
                     })
                   }
                 />

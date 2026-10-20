@@ -374,6 +374,7 @@
     "additional_notes": "Дополнительные заметки о клиенте",
     "client_details": "Детали клиента",
     "complete_information": "Полная информация для",
+    "id_card_number": "Номер удостоверения личности",
     "total_purchases": "Общие покупки",
     "current_debt": "Текущий долг",
     "last_purchase": "Последняя покупка",

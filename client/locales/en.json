@@ -374,6 +374,7 @@
     "additional_notes": "Additional notes about the client",
     "client_details": "Client Details",
     "complete_information": "Complete information for",
+    "id_card_number": "ID card number",
     "total_purchases": "Total Purchases",
     "current_debt": "Current Debt",
     "last_purchase": "Last Purchase",
